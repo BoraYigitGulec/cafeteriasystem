@@ -35,9 +35,6 @@ public class Transaction {
 
     public void setAmount (Long Amount){this.amount = Amount;}
     public void setUser( User user){this.user = user;}
-    public void setWorkplace(Workplace workplace) {
-        this.workplace = workplace;
-    }
-
+  
 
 }
