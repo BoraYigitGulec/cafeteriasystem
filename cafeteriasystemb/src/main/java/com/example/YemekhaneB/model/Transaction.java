@@ -23,15 +23,12 @@ public class Transaction {
     @JoinColumn(name = "userid", referencedColumnName = "id")
     private User user;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "workplaceid", referencedColumnName = "id")
-    private Workplace workplace;
 
     public Long getId(){return id;}
     public LocalDateTime getDate(){return date;}
     public String getTransactiontype(){return transactiontype;}
     public  Long getAmount(){return amount;}
     public Long getuserid(){return user.getId();}
-    public Long getworkspaceid(){return workplace.getId();}
 
     public void SetDate(LocalDateTime date){this.date = date;}
     public void setTransactionType(String transactiontype){this.transactiontype = transactiontype;}
