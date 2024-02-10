@@ -71,7 +71,6 @@ public class TransactionService {
             newtransaction.setAmount(PurchaseRequest.getAmount());
             newtransaction.setTransactionType("Purchase");
             newtransaction.setUser(userService.getUserByUsername(PurchaseRequest.getUsername()));
-            newtransaction.setWorkplace(WorkplaceService.getWorkplace(PurchaseRequest.getWorkplaceid()));
             if (userService.changeBalance(newtransaction) && userService.purchasetitleId(PurchaseRequest.getPurchaseid()
                     , userService.getUserByUsername(PurchaseRequest.getUsername()))) {
                 TransactionRepository.save(newtransaction);
