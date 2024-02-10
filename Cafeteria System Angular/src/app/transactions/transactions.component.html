@@ -1,0 +1,34 @@
+<body>
+    <!-- Navigation bar -->
+    <nav class="navMenu">
+      <div>
+        <a (click)="directHome()">Today's Menu</a>
+        <a routerLink="/transactionhistory" style="font-size: 16px;">Past Purchases</a>
+      <a routerLink="/transaction">Subscriptions</a>
+    </div>
+    <a class="bakiye-button">
+      <span class="icon-image"></span>
+      <div class="popup">
+        <p class="popup-label">Balance: {{ Balance | currency }}</p>
+        <p class="popup-label">User: {{ Username }}</p>
+      </div>
+    </a>
+  
+    </nav>
+    <div class="purchase-row">
+        <div class="purchase-info">
+          <span class="purchase-name">Daily Subscription </span>
+          <span class="purchase-cost">{{ dailyPurchaseCost | currency }}</span>
+        </div>
+        <button (click)="OndailyPurchase()">Purchase</button>
+      </div>
+    
+      <!-- Second Row: Monthly Subscription -->
+      <div class="purchase-row">
+        <div class="purchase-info">
+          <span class="purchase-name">Monthly Subscription</span>
+          <span class="purchase-cost">{{ monthlySubscriptionCost | currency }}</span>
+        </div>
+        <button (click)="OnmonthlyPurchase()">Purchase</button>
+      </div>
+</body>

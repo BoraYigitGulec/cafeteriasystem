@@ -1,0 +1,163 @@
+.navMenu {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%); /* Center the navigation bar horizontally */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    font-family: Arial, sans-serif;
+    z-index: 9999; /* Ensure it appears on top of other elements */
+   
+  }
+  
+  
+  .navMenu a {
+    padding: 8px 20px;
+  
+    color: #f6f4e6;
+    text-decoration: none;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: inline-block;
+    width: 150px;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    
+  
+  }
+  
+  .navMenu a:hover {
+    color: #fddb3a;
+  }
+  
+  .navMenu .dot {
+    width: 6px;
+    height: 6px;
+    background: #fddb3a;
+    border-radius: 50%;
+    opacity: 0;
+    -webkit-transform: translateX(30px);
+    transform: translateX(30px);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .navMenu a:nth-child(1):hover ~ .dot {
+    -webkit-transform: translateX(30px);
+    transform: translateX(30px);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    opacity: 1;
+  }
+  
+  .navMenu a:nth-child(2):hover ~ .dot {
+    -webkit-transform: translateX(110px);
+    transform: translateX(110px);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    opacity: 1;
+  }
+  
+  .navMenu a:nth-child(3):hover ~ .dot {
+    -webkit-transform: translateX(200px);
+    transform: translateX(200px);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    opacity: 1;
+  }
+  
+  .navMenu a:nth-child(4):hover ~ .dot {
+    -webkit-transform: translateX(285px);
+    transform: translateX(285px);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    opacity: 1;
+  }
+  .bakiye-label {
+    color: #f6f4e6;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 8px 20px;
+    display: inline-block;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }
+  .bakiye-button {
+    display: inline-flex; /* Use inline-flex to align items vertically */
+    align-items: center; /* Center items vertically */
+    justify-content: center;
+    padding: 0; /* Remove default padding */
+    background-color: transparent; /* Make the background transparent */
+    border: none; /* Remove border */
+    cursor: pointer;
+    position: relative; /* Needed for positioning the image */
+  }
+  
+  .icon-image {
+    display: block;
+    width: 100%; /* Set the width to 100% to cover the entire button */
+    height: 100%;
+    background: url('/assets/images/profileicon.jpg') no-repeat center center;
+    background-size: contain;}
+  
+  .popup {
+    position: absolute; /* Position the popup absolutely within the .bakiye-button container */
+    top: 100%; /* Position it below the button */
+    left: 50%; /* Center the popup horizontally */
+    transform: translateX(-50%); /* Center the popup horizontally */
+    background-color: #333;
+    color: #f6f4e6;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: none;
+  }
+  
+  .bakiye-button:hover .popup {
+    display: block; /* Show the popup when hovering over .bakiye-button */
+  }
+  .purchase-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f6f4e6;
+    padding: 10px;
+    margin-top: 20px;
+    position: relative; /* Add this */
+    top: 60px; /* Adjust this value as needed */
+  }
+  
+  .purchase-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .purchase-name {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  .purchase-cost {
+    font-size: 1em;
+    color: #333;
+  }
+  
+  .purchase-button {
+    padding: 8px 16px;
+    background-color: #fddb3a;
+    color: #333;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
+  
+  .purchase-button:hover {
+    background-color: #f6f4e6;
+    color: #fddb3a;
+  }

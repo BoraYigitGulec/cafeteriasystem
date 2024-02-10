@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yemek Tablosu</title>
+  
+</head>
+
+<body>
+  <!-- Navigation bar -->
+  <nav class="navMenu">
+    <div>
+      <a routerLink="/ahome">Today's Menu</a>
+      <a routerLink="/transactionhistory" style="font-size: 16px;">Past Purchases</a>
+      <a routerLink="/transaction">Subscriptions</a>
+      <a (click)="AdminPanel()">Admin Panel</a>
+    </div>
+    <a class="bakiye-button">
+      <span class="icon-image"></span>
+      <div class="popup">
+        <p class="popup-label">Balance: {{ Balance | currency }}</p>
+        <p class="popup-label">User: {{ Username }}</p>
+      </div>
+    </a>
+
+  </nav>
+
+   <!-- Main content -->
+<div class="container">
+  <div class="main">
+    <div class="yemek-listesi">
+      <h1>Today's Menu</h1>
+      <table>
+        <tr>
+          <th>Food</th>
+          <th>Calorie</th>
+        </tr>
+        <!-- Use *ngIf to conditionally show the current menu -->
+        <tr *ngIf="currentMenu">
+          <td>{{ currentMenu.food1 }}</td>
+          <td>{{ currentMenu.calorie1 }}</td>
+        </tr>
+        <tr *ngIf="currentMenu">
+          <td>{{ currentMenu.food2 }}</td>
+          <td>{{ currentMenu.calorie2 }}</td>
+        </tr>
+        <tr *ngIf="currentMenu">
+          <td>{{ currentMenu.food3 }}</td>
+          <td>{{ currentMenu.calorie3 }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<head>
+    <title>Cafeteria System</title>
+  </head>
+<body>
+  <h1>
+    Cafeteria System
+  </h1>
+	<div class="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true">
+
+			<div class="girisyap">
+				<form>
+					<label for="chk" aria-hidden="true">Login</label>
+					<input type="text" name="txt" placeholder="Username" [(ngModel)]= "LoginObj.username">
+					<input type="password" name="pswd" placeholder="Password" [(ngModel)]= "LoginObj.password">
+					<button (click)="OnLogin()">   Log In</button>
+				</form>
+			</div>
+
+			<div class="kaydol">
+				<form>
+					<label for="chk" aria-hidden="true">Sign Up</label>
+					<input type="text" name="txt" placeholder="Username" [(ngModel)]="SignObj.username">
+					<input type="password" name="pswd" placeholder="Password" [(ngModel)]= "SignObj.password">
+                    <input type="password" name="pswdtekrar" placeholder="Password" [(ngModel)]= "p2Obj.password2">
+					<p *ngIf="passwordsDoNotMatch" class="warning">Your password is not matching. Please Try again!</p>
+					<button (click)="OnSignUp()">Sign Up</button>
+				</form>
+			</div>
+	</div>
+</body>

@@ -1,0 +1,37 @@
+<body>
+    <!-- Navigation bar -->
+    <nav class="navMenu">
+      <div>
+        <a (click)="directHome()">Today's Menu</a>
+      <a routerLink="/transactionhistory" style="font-size: 16px;">Past Purchases</a>
+      <a routerLink="/transaction">Subscriptions</a>
+    </div>
+    <a class="bakiye-button">
+      <span class="icon-image"></span>
+      <div class="popup">
+        <p class="popup-label">Balance: {{ Balance | currency }}</p>
+        <p class="popup-label">User: {{ Username }}</p>
+      </div>
+    </a>  
+    </nav>
+    <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>User Id</th>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Workspace Id</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let transaction of transactions">
+                <td>{{ transaction.date }}</td>
+                <td>{{ transaction.userid }}</td>
+                <td>{{ transaction.transactiontype }}</td>
+                <td>{{ transaction.amount }}</td>
+                <td>{{ transaction.workspaceid }}</td>
+            </tr>
+        </tbody>
+      </table>
+</body>

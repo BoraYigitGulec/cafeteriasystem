@@ -1,0 +1,91 @@
+<body>
+  <div class="main-container">
+    <div class="sidebar">
+      <h1>Admin Panel</h1>
+      <ul>
+        <li><a routerLink="/foodconsole">Food Table</a></li>
+        <li><a routerLink="/adminreports">Admin Reports</a></li>
+        <li><a routerLink="/ausers">Users</a></li>
+        <li><a href="/ahome">Back</a></li>
+      </ul>
+    </div>
+    <div class="content">
+      <div class="user-list-container">
+        <h1>User List</h1>
+        <input
+          type="text"
+          [ngModel]="searchUsername"
+          (ngModelChange)="onSearchChange($event)"
+          placeholder="Search by Username"
+        />
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Username</th>
+              <th>Password</th>
+              <th>Balance</th>
+              <th>Title ID</th>
+              <th>Role ID</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of filteredUsers; let i = index">
+              <td>{{ user.id }}</td>
+              <td>
+                <ng-container *ngIf="!user.editMode; else editUsernameTpl">
+                  {{ user.username }}
+                </ng-container>
+                <ng-template #editUsernameTpl>
+                  <input *ngIf="user.editMode" type="text" [(ngModel)]="user.newUsername" />
+                </ng-template>
+              </td>
+              <td>
+                <ng-container *ngIf="!user.editMode; else editPasswordTpl">
+                  {{ user.password }}
+                </ng-container>
+                <ng-template #editPasswordTpl>
+                  <input *ngIf="user.editMode" type="password" [(ngModel)]="user.newPassword" />
+                </ng-template>
+              </td>
+              <td>
+                <ng-container *ngIf="!user.editMode; else editBalanceTpl">
+                  {{ user.balance }}
+                </ng-container>
+                <ng-template #editBalanceTpl>
+                  <input *ngIf="user.editMode" type="number" [(ngModel)]="user.newBalance" />
+                </ng-template>
+              </td>
+              <td>
+                <ng-container *ngIf="!user.editMode; else editTitleIdTpl">
+                  {{ user.titleId }}
+                </ng-container>
+                <ng-template #editTitleIdTpl>
+                  <input *ngIf="user.editMode" type="number" [(ngModel)]="user.newTitleId" />
+                </ng-template>
+              </td>
+              <td>
+                <ng-container *ngIf="!user.editMode; else editRoleIdTpl">
+                  {{ user.roleId }}
+                </ng-container>
+                <ng-template #editRoleIdTpl>
+                  <input *ngIf="user.editMode" type="number" [(ngModel)]="user.newroleid" />
+                </ng-template>
+              </td>
+              <td>
+                <ng-container *ngIf="!user.editMode; else editModeTpl">
+                  <button (click)="toggleEditMode(user)">Edit</button>
+                </ng-container>
+                <ng-template #editModeTpl>
+                  <button (click)="saveChanges(user)">Submit</button>
+                  <button (click)="toggleEditMode(user)">Cancel</button>
+                </ng-template>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>

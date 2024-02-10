@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel - Food Table</title>
+</head>
+
+<body>
+  
+  <div class="admin-panel">
+    <div class="sidebar">
+      <h1>Admin Panel</h1>
+      <ul>
+        <li><a routerLink="/foodconsole">Food Table</a></li>
+        <li><a routerLink="/adminreports">Admin Reports</a></li>
+        <li><a routerLink="/ausers">Users</a></li>
+        <li><a href="/ahome">Back</a></li>
+      </ul>
+    </div>
+    <div class="content">
+      <h2>Food Table - Monthly Meals</h2>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th>Food 1</th>
+              <th>Calories</th>
+              <th>Food 2</th>
+              <th>Calories</th>
+              <th>Food 3</th>
+              <th>Calories</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let day of days; let i = index">
+              <td><input type="date" [(ngModel)]="days[i].date" /></td> 
+              <td><input type="text" [(ngModel)]="days[i].food1" /></td>
+              <td><input type="number" [(ngModel)]="days[i].calorie1" /></td>
+              <td><input type="text" [(ngModel)]="days[i].food2" /></td>
+              <td><input type="number" [(ngModel)]="days[i].calorie2" /></td>
+              <td><input type="text" [(ngModel)]="days[i].food3" /></td>
+              <td><input type="number" [(ngModel)]="days[i].calorie3" /></td>
+            </tr>
+          </tbody>
+        </table>
+        <button (click)="addRow()">Add Row</button>
+        <button (click)="submitRows()">Submit</button> <!-- Add the "Submit" button -->
+
+      </div>
+     
+    </div>
+  </div>
+  <div class="food-list">
+    <h2>Food Table - Food List</h2>
+    <ul>
+      <li *ngFor="let food of foods">
+        <strong>Date:</strong> {{ food.date | date }}<br>
+        <strong>Food 1:</strong> {{ food.food1 }} - Calories: {{ food.calorie1 }}<br>
+        <strong>Food 2:</strong> {{ food.food2 }} - Calories: {{ food.calorie2 }}<br>
+        <strong>Food 3:</strong> {{ food.food3 }} - Calories: {{ food.calorie3 }}<br>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Your script imports or other content here... -->
+
+</body>
+
+</html>

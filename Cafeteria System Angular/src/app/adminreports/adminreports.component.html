@@ -1,0 +1,98 @@
+<body>
+    <div class="main-container">
+      <div class="sidebar">
+        <h1>Admin Panel</h1>
+        <ul>
+          <li><a routerLink="/foodconsole">Food Table</a></li>
+          <li><a routerLink="/adminreports">Admin Reports</a></li>
+          <li><a routerLink="/ausers">Users</a></li>
+          <li><a href="/ahome">Back</a></li>
+        </ul>
+      </div>
+      <div class="content">
+        <div class="user-list-container">
+          <h1>Reports</h1>
+          <div class="daily-summary">
+            <div class="surface-ground px-4 py-5 md:px-6 lg:px-8">
+    <div class="grid">
+        <div class="col-12 md:col-6 lg:col-5">
+            <div class="surface-card shadow-2 p-3 border-round">
+                <div class="flex justify-content-between mb-3">
+                    <div>
+                        <span class="block text-500 font-medium mb-3">Daily Revenue</span>
+                        <div class="text-900 font-medium text-xl">{{ dailyRevenue | currency }}</div>
+                    </div>
+                    <div class="flex align-items-center justify-content-center bg-blue-100 border-round" style="width:2.5rem;height:2.5rem">
+                        <i class="pi pi-shopping-cart text-blue-500 text-xl"></i>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+        <div class="col-12 md:col-6 lg:col-5">
+            <div class="surface-card shadow-2 p-3 border-round">
+                <div class="flex justify-content-between mb-3">
+                    <div>
+                        <span class="block text-500 font-medium mb-3">Daily Sales</span>
+                        <div class="text-900 font-medium text-xl">{{ dailyPurchase }}</div>
+                    </div>
+                    <div class="flex align-items-center justify-content-center bg-orange-100 border-round" style="width:2.5rem;height:2.5rem">
+                        <i class="pi pi-map-marker text-orange-500 text-xl"></i>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+          </div>
+          <input
+            type="text"
+            [ngModel]="searchuserId"
+            (ngModelChange)="onSearchChange($event)"
+            placeholder="Search by User Id"
+          />
+          <table>
+            <thead>
+              <tr>
+                <th>date</th>
+                <th>User Id</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Workspace Id</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let transaction of filteredTransactions; let i = index">
+                <td>{{ transaction.date }}</td>
+                <td>
+                  <ng-container >
+                    {{ transaction.userid }}
+                  </ng-container>
+                </td>
+                <td>
+                  <ng-container >
+                    {{ transaction.transactiontype }}
+                  </ng-container>
+
+                </td>
+                <td>
+                  <ng-container>
+                    {{ transaction.amount }}
+                  </ng-container>
+                </td>
+                <td>
+                  <ng-container >
+                    {{ transaction.workspaceid }}
+                  </ng-container>
+                </td>
+
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
